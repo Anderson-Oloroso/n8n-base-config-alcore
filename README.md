@@ -37,7 +37,32 @@ git clone https://github.com/anndreloopez012/n8n-base-config-alcore.git
 cd n8n-base-config-alcore
 ```
 
-Levanta todo:
+### Opcion mas rapida
+
+macOS o Linux:
+
+```bash
+chmod +x start.sh scripts/*.sh
+./start.sh
+```
+
+Windows PowerShell:
+
+```powershell
+.\start.ps1
+```
+
+El script hace esto por ti:
+
+- valida que Docker este corriendo
+- crea `.env` si no existe
+- valida `docker-compose.yml`
+- levanta los servicios
+- muestra las URLs de trabajo
+
+### Opcion directa con Docker
+
+Tambien puedes levantar todo con:
 
 ```bash
 docker compose up -d
@@ -56,6 +81,12 @@ docker compose ps
 ```
 
 Si todos aparecen como `running` o `healthy`, el entorno esta listo.
+
+Guia corta de comandos:
+
+```text
+docs/COMANDOS-RAPIDOS.md
+```
 
 ## Crear el archivo .env
 
@@ -229,7 +260,11 @@ n8n-base-config-alcore/
 ├── .env.example
 ├── README.md
 ├── CONTRIBUTING.md
+├── Makefile
+├── start.sh
+├── start.ps1
 ├── docs/
+│   ├── COMANDOS-RAPIDOS.md
 │   ├── INSTALACION-PASO-A-PASO.md
 │   ├── GUIA-N8N-NGROK.md
 │   └── SOLUCION-DE-PROBLEMAS.md
@@ -272,4 +307,3 @@ n8n-base-config-alcore/
 - n8n PostgreSQL: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/database/
 - ngrok Docker: https://ngrok.com/docs/using-ngrok-with/docker/
 - Docker Compose variables: https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/
-
